@@ -25,15 +25,16 @@ from __future__ import annotations
 
 import cuda.bindings.driver as cuda
 import cutlass
-import cutlass._mlir.dialects.cute as _cute_ir
 import cutlass.cute as cute
 import cutlass.cute.nvgpu.warpgroup as warpgroup
 import cutlass.pipeline as pipeline
 import cutlass.utils as utils
 import cutlass.utils.hopper_helpers as sm90_utils
-from cutlass._mlir.dialects import llvm
 from cutlass.cute.nvgpu import cpasync, warp
 from cutlass.utils.tensormap_manager import TensorMapManager, TensorMapUpdateMode
+
+from cula.ops._mlir_compat import cute as _cute_ir
+from cula.ops._mlir_compat import llvm
 
 from .schedule import (
     DYNAMIC_SMEM_ESTIMATE_BYTES,
